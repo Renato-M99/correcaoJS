@@ -188,8 +188,8 @@ function p2Ex4() {
 
     //esse if serve para proteger o programa, para nao deixar o usuario digitar valores que fogem dos meses no calendario.
     if (mes > 0 && mes < 13) {
-        
-    //verificando os valores para determinar as estaçoes
+
+        //verificando os valores para determinar as estaçoes
         if (mes >= 3 && mes < 6) {
             alert('Outono');
         }
@@ -203,23 +203,203 @@ function p2Ex4() {
             alert('Verao');
         }
     }
-    else{
+    else {
         alert('Valor invalido, lembre-se que os meses vao de 1 a 12.')
     }
 }
 /* p2Ex4(); */
 
-function p2Ex5(){
+function p2Ex5() {
     let valor;
 
     valor = Number(prompt('Digite um valor:'));
 
-    if(valor < 0){
+    if (valor < 0) {
         alert('O valor ' + valor + ' eh negativo!');
 
     }
-    else{
+    else {
         alert('O valor ' + valor + ' eh positivo!');
     }
 }
-p2Ex5();
+/* p2Ex5(); */
+
+// ---------------------------------------- PARTE 3 ----------------------------------------- //
+
+function p3Ex1() {
+
+
+    /* Ex1: Uma lanchonete implementou um simples sistema para os
+    seus clientes realizarem pedidos. Basta o cliente inserir o código do
+    produto, a quantidade e se ele deseja pedir mais alguma coisa.
+    Assim que o usuário terminar de pedir, o programa retorna o total a
+    ser pago */
+    let op, codLanche, priceLanche = 0, qtd, subTotal = 0; total = 0;
+
+
+    op = prompt('Deseja fazer pedido? (s/n)');
+
+    while (op == 's' && op != 'n') {
+
+        codLanche = Number(prompt('digite o codigo do item'));
+        qtd = Number(prompt('digite a quantidade de itens ao carrinho'));
+
+        if (codLanche == 1) {
+            // add o cachorro-quente que custa 4 reais
+            priceLanche = 4.0;
+
+        }
+        else if (codLanche == 2) {
+            // x-salada preço
+            priceLanche = 4.5;
+
+        }
+        else if (codLanche == 3) {
+            // x-bacon preço
+            priceLanche = 5.0;
+
+        }
+        else if (codLanche == 4) {
+            // torrada preço
+            priceLanche = 2.0;
+
+        }
+        else if (codLanche == 5) {
+            // refrigerante preço
+            priceLanche = 1.5;
+
+        }
+        //multiplicando a quantidade que o cliente quer pelo preço da unidade!
+        //essa variavel ser para contar temporariamente o preço e ir aumentando conforme o usuario for adicionando os itens
+        subTotal += qtd * priceLanche;
+        op = prompt('adicionar mais um item?');
+
+    }
+
+    total = subTotal;
+
+    alert('Total a ser pago: ' + total.toFixed(2) + ' R$. Obrigado, volte sempre :)')
+}
+/* p3Ex1(); */
+
+function p3Ex2() {
+    /*   Escreva um programa que armazene a senha de um usuário e
+      repita a leitura de uma senha até que ela seja válida. Para cada
+      leitura de senha incorreta informada, escrever a mensagem "Senha
+      Invalida". Quando a senha for informada corretamente deve ser
+      impressa a mensagem "Acesso Permitido" e o algoritmo encerrado. */
+
+    // a variavel login serve para comparar com a senha. 
+    let password, login;
+    // solicitando ao cliente cadastrar sua senha pessoal
+    password = prompt('Cadastre sua senha: ');
+    //nesse while, ENQUANTO o login, que seria a tentativa de digitar a senha, for incorreta, o laço ira se repetir ate o login for igual a password.
+    while (login != password) {
+        login = prompt('qual a senha?');
+
+        if (login != password) {
+            alert('senha incorreta, tente novamente!');
+        }
+        else {
+            alert('Acesso permitido!')
+        }
+    }
+}
+
+/* p3Ex2(); */
+
+function p3Ex3() {
+    /* Um Posto de combustíveis deseja determinar qual de seus
+    produtos tem a preferência de seus clientes. Escreva um algoritmo
+    para ler o tipo de combustível abastecido (codificado da seguinte
+    forma: 1. Álcool 2. Gasolina 3. Diesel 4. Fim). Caso o usuário
+    informe um código inválido (fora da faixa de 1 a 4) deve ser
+    solicitado um novo código (até que seja válido). O programa será
+    encerrado quando o código informado for o número 4. Deve ser
+    escrito a mensagem: "MUITO OBRIGADO" e a quantidade de clientes que abasteceram cada tipo de combustível. */
+
+    let op = 0, alcool = 0, gasolina = 0, diesel = 0;
+
+
+    while (op != 4) {
+        op = Number(prompt('Qual tipo de combustivel? (1- alcool, 2 - Gasolina, 3 - Diesel e 4 para finalizar o programa'));
+        if (op == 1) {
+            //se digitou 1 significa que eh alcool
+            // sempre que for digitado o valor correspondente, ele vai acrescentar mais um no combustivel em questao
+            alcool += 1;
+        }
+        else if (op == 2) {
+            //se digitou 1 significa que eh alcool
+            // sempre que for digitado o valor correspondente, ele vai acrescentar mais um no combustivel em questao
+            gasolina += 1;
+        }
+        else if (op == 3) {
+            diesel += 1;
+        }
+        else if (op == 4) {
+            alert('MUITO OBRIGADO');
+        }
+        else {
+            alert('valor invalido! valores aceitos = 1 - alcool, 2 - gasolina, 3 - diesel ou 4 - fim');
+        }
+    }
+
+    alert('Alcool: ' + alcool + ' ' + 'Gasolina: ' + gasolina + ' ' + 'Diesel: ' + diesel)
+}
+
+/* p3Ex3();
+ */
+
+function p3Ex4() {
+    /* Tabuada versão While: leia um número e exiba sua tabuada na tela até 10. */
+
+    // OBS: EM VEZ DE ALERT, USAREMOS O CONSOLE.LOG PARA MOSTRAR POIS PRECISAMOS MOSTRAR TUDO DE UMA VEZ EM VARIAS LINHAS
+    // inspecionar e checar o console para ver os resultados.
+    // variavel count para controlar ate 10 o numero de vezes que o while vai se repetir e, tbm para mostrar os calculos;
+    // variavel tab para fazer as contas.
+    let num, count = 1, tab = 0;
+    num = Number(prompt('digite o valor > '));
+
+    while (count <= 10) {
+        tab = num * count;
+        console.log(num + ' x ' + count + ' = ' + tab);
+        count++; //NAO ESQUECER DE ACRESCENTAR, SENAO O NAVEGADOR VAI TRAVAR!
+    }
+
+}
+/* p3Ex4(); */
+
+function p3Ex5() {
+    /*  Ex5: Registre um nome, idade e curso de um usuário, e depois
+     pergunte se precisa cadastrar mais (s/n), caso s, continue lendo os
+     dados nos vetores, caso n, pare laço e informe a lista de usuários
+     com seus dados que foram digitados e a quantidade. Ainda, faça
+     uma média das idades. */
+
+    // variavel vetor: para armazenar um conjunto de dados
+    // variavel media, soma, e count para realizar a media de idades
+    let op, count = 0, media = 0, soma = 0; 
+    let vetor = { "nome": "", "idade": 0, "curso" : "" };
+    op = prompt('Cadastrar alunos? (s - sim / n - nao)');
+    while (op == 's' && op != 'n') {
+        // aqui, armazenaremos os dados dos vetores, lembre-se que a primeira posiçao de um vetor eh 0
+        // para armazenar o valor no vetor basta chamar o nome da variavel e entre [] informar a posiçao que vc quer inserir os dados.
+        vetor [0] = prompt('Nome do aluno: ');
+        vetor [1] = Number(prompt('Idade: '));
+        vetor [2] = prompt('Curso do aluno: ');
+        count++;
+        // inspecionar a pagina para ver a lista
+        console.log(count + 'º aluno: ' + vetor[0] + ", idade: " + vetor[1] + ", curso: " + vetor[2])
+        //variavel temporaria para armazenar o valor do vetor
+        let temp = vetor[1];
+        //cada vez que o usuario digitar uma idade, sera somado nessa variavel
+        soma += temp;
+        // verificar se o usuario quer continuar o programa.
+        op = prompt('Deseja cadastrar mais um aluno? (s - sim / n - nao)');
+
+    }
+    media = soma / count;
+    alert('A media das idades dos alunos: ' + media.toFixed(2));
+}
+/* 
+p3Ex5(); */
