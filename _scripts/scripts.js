@@ -403,3 +403,68 @@ function p3Ex5() {
 }
 /* 
 p3Ex5(); */
+
+// ---------------------------------------- PARTE 4 ----------------------------------------- //
+function p4Ex1(){
+    let x;
+    x = Number(prompt('Digite um valor'));
+    //laço for. Ele vai contar apartir da variavel 'i' ate o valor que o usuario digitou
+    //inspecione e veja o resultado
+    for(let i = 1; i<=x; i++){
+        console.log(i);
+    }
+}
+/* p4Ex1(); */
+
+function p4Ex2(){
+
+    let x;
+    x = Number((prompt('Digite um valor>')));
+    // a variavel count precisa começar valendo o que foi digitado para assim poder decrementar. count-- vai descontar o valor, count>=1 garante que a contagem regressiva sera ate 1
+    for (let count = x; count>=1; count--){
+        console.log(count);//inspecione para ver o resultado
+    }
+
+}
+/* p4Ex2(); */
+
+function p4Ex3(){
+    /* Receba um valor x. Conte de 1 até X, marcando só os pares
+na tela! */
+    let x;
+    x = Number((prompt('Digite um valor>')));
+    for(let i = 1; i<=x; i++){
+        if(i % 2 == 0){
+            console.log(i);
+        }
+      
+    }
+}
+/* 
+p4Ex3() */
+
+function p4Ex4(){
+    //literalmente usa a logica inversa do exercicio 3, o if precisa dar resto diferente de 0 quando o valor for dividido por 2, sendo assim mostrando apenas os impares.
+    let x;
+    x = Number((prompt('Digite um valor>')));
+    for(let i = 1; i<=x; i++){
+        if(i % 2 != 0){
+            console.log(i);
+        }
+      
+    }
+}
+/* 
+p4Ex4(); */
+
+function p4Ex5(){
+    let valor, tabuada;
+
+    valor = Number(prompt('Digite um valor para calcular a tabuada'));
+    for (let i = 1; i<=10; i++){
+        tabuada = valor * i;
+        console.log(valor + ' x ' + i + ' = ' + tabuada);
+    }
+}
+/* 
+p4Ex5() */
