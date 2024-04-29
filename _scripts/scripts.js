@@ -378,15 +378,15 @@ function p3Ex5() {
 
     // variavel vetor: para armazenar um conjunto de dados
     // variavel media, soma, e count para realizar a media de idades
-    let op, count = 0, media = 0, soma = 0; 
-    let vetor = { "nome": "", "idade": 0, "curso" : "" };
+    let op, count = 0, media = 0, soma = 0;
+    let vetor = { "nome": "", "idade": 0, "curso": "" };
     op = prompt('Cadastrar alunos? (s - sim / n - nao)');
     while (op == 's' && op != 'n') {
         // aqui, armazenaremos os dados dos vetores, lembre-se que a primeira posiçao de um vetor eh 0
         // para armazenar o valor no vetor basta chamar o nome da variavel e entre [] informar a posiçao que vc quer inserir os dados.
-        vetor [0] = prompt('Nome do aluno: ');
-        vetor [1] = Number(prompt('Idade: '));
-        vetor [2] = prompt('Curso do aluno: ');
+        vetor[0] = prompt('Nome do aluno: ');
+        vetor[1] = Number(prompt('Idade: '));
+        vetor[2] = prompt('Curso do aluno: ');
         count++;
         // inspecionar a pagina para ver a lista
         console.log(count + 'º aluno: ' + vetor[0] + ", idade: " + vetor[1] + ", curso: " + vetor[2])
@@ -405,66 +405,150 @@ function p3Ex5() {
 p3Ex5(); */
 
 // ---------------------------------------- PARTE 4 ----------------------------------------- //
-function p4Ex1(){
+function p4Ex1() {
     let x;
     x = Number(prompt('Digite um valor'));
     //laço for. Ele vai contar apartir da variavel 'i' ate o valor que o usuario digitou
     //inspecione e veja o resultado
-    for(let i = 1; i<=x; i++){
+    for (let i = 1; i <= x; i++) {
         console.log(i);
     }
 }
 /* p4Ex1(); */
 
-function p4Ex2(){
+function p4Ex2() {
 
     let x;
     x = Number((prompt('Digite um valor>')));
     // a variavel count precisa começar valendo o que foi digitado para assim poder decrementar. count-- vai descontar o valor, count>=1 garante que a contagem regressiva sera ate 1
-    for (let count = x; count>=1; count--){
+    for (let count = x; count >= 1; count--) {
         console.log(count);//inspecione para ver o resultado
     }
 
 }
 /* p4Ex2(); */
 
-function p4Ex3(){
+function p4Ex3() {
     /* Receba um valor x. Conte de 1 até X, marcando só os pares
 na tela! */
     let x;
     x = Number((prompt('Digite um valor>')));
-    for(let i = 1; i<=x; i++){
-        if(i % 2 == 0){
+    for (let i = 1; i <= x; i++) {
+        if (i % 2 == 0) {
             console.log(i);
         }
-      
+
     }
 }
 /* 
 p4Ex3() */
 
-function p4Ex4(){
+function p4Ex4() {
     //literalmente usa a logica inversa do exercicio 3, o if precisa dar resto diferente de 0 quando o valor for dividido por 2, sendo assim mostrando apenas os impares.
     let x;
     x = Number((prompt('Digite um valor>')));
-    for(let i = 1; i<=x; i++){
-        if(i % 2 != 0){
+    for (let i = 1; i <= x; i++) {
+        if (i % 2 != 0) {
             console.log(i);
         }
-      
+
     }
 }
 /* 
 p4Ex4(); */
 
-function p4Ex5(){
+function p4Ex5() {
     let valor, tabuada;
 
     valor = Number(prompt('Digite um valor para calcular a tabuada'));
-    for (let i = 1; i<=10; i++){
+    for (let i = 1; i <= 10; i++) {
         tabuada = valor * i;
         console.log(valor + ' x ' + i + ' = ' + tabuada);
     }
 }
 /* 
 p4Ex5() */
+
+
+/* EXERCICIO EXTRA! */
+
+/* Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
+    Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+    Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+ */
+
+
+function exDinheiro() {
+
+    let withdraw, nota = 0, nota1 = 0, nota5  = 0, nota10  = 0, nota50  = 0, nota100  = 0;
+    withdraw = Number(prompt('Qual o valor de saque?'));
+    let resposta = 0;
+    
+        if (withdraw >= 10 && withdraw <= 600){
+            nota100 = parseInt(withdraw/100);
+            withdraw -= nota100 * 100;
+            nota50 = parseInt(withdraw/50);
+            withdraw -= nota50 * 50;
+            nota10 = parseInt(withdraw/10);
+            withdraw -= nota10 * 10;
+            nota5 = parseInt(withdraw/5);
+            withdraw -= nota5 * 5;
+            nota1 = parseInt (withdraw /1);
+            nota1 = withdraw;
+            if(nota100 > 0){
+                alert('notas de 100: ' + nota100);
+            }
+            if(nota50 > 0){
+                alert('notas de 50: ' + nota50);
+            }
+            if(nota10 > 0){
+                alert('notas de 10: ' + nota10);
+            }
+            if(nota5 > 0){
+                alert('notas de 5: ' + nota5);
+            }
+            if(nota1 > 0){
+                alert('notas de 1: ' + nota1)
+            }
+            
+        }
+        else{
+            alert("Valor invalido, apenas de 10 a 600")
+        }
+    
+        
+    }
+
+ 
+  
+    
+/* 
+exDinheiro() */
+
+function exTriangulo(){
+    /* . Faça um script que peça os 3 lados de um triângulo. O script deverá informar se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
+    Dicas:
+    Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
+    Triângulo Equilátero: três lados iguais;
+    Triângulo Isósceles: quaisquer dois lados iguais;
+    Triângulo Escaleno: três lados diferentes;
+ */
+
+    let a,b,c;
+
+    a = Number(prompt('medida do lado A'));
+    b = Number(prompt('medida do lado B'));
+    c = Number(prompt('medida do lado C'));
+
+    if(a == b && b == c ){
+        alert('Equilatero');
+    }
+    else if(b == c || b == a){
+        alert('isoceles')
+    }
+    else{
+        alert('escaleno');
+    }
+}
+
+exTriangulo();

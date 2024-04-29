@@ -1,0 +1,10 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.result{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid red;
+}
